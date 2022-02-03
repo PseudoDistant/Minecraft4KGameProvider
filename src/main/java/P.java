@@ -16,7 +16,7 @@ public class P extends GamePatch {
     @Override
     public void process(FabricLauncher launcher, Function<String, ClassReader> classSource, Consumer<ClassNode> classEmitter) {
         ClassNode mainClass = readClass(classSource.apply("M"));
-        mainClass.methods.get(2).instructions.iterator().add(new MethodInsnNode(Opcodes.INVOKESTATIC, "MiniEntrypointPatch", "init", "()V", false));
+        mainClass.methods.get(2).instructions.iterator().add(new MethodInsnNode(Opcodes.INVOKESTATIC, "P", "init", "()V", false));
         classEmitter.accept(mainClass);
     }
 
