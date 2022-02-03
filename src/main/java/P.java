@@ -18,7 +18,7 @@ public class P extends GamePatch {
         readClass(classSource.apply("M")).methods.get(2).instructions.iterator().add(new MethodInsnNode(Opcodes.INVOKESTATIC, "P", "init", "()V", false));
         classEmitter.accept(readClass(classSource.apply("M")));
     }
-
+//TODO: Get the entrypoint working, because it doesn't seem to be (Can't test thoroughly, just working off a generic mod).
     public static void init() {
         FabricLoaderImpl.INSTANCE.prepareModInit(Paths.get("."), FabricLoaderImpl.INSTANCE.getGameInstance());
         EntrypointUtils.invoke("main", ModInitializer.class, ModInitializer::onInitialize);
