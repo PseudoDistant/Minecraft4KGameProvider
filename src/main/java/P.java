@@ -15,9 +15,8 @@ import java.util.function.Function;
 public class P extends GamePatch {
     @Override
     public void process(FabricLauncher launcher, Function<String, ClassReader> classSource, Consumer<ClassNode> classEmitter) {
-        ClassNode mainClass = readClass(classSource.apply("M"));
-        mainClass.methods.get(2).instructions.iterator().add(new MethodInsnNode(Opcodes.INVOKESTATIC, "P", "init", "()V", false));
-        classEmitter.accept(mainClass);
+        readClass(classSource.apply("M")).methods.get(2).instructions.iterator().add(new MethodInsnNode(Opcodes.INVOKESTATIC, "P", "init", "()V", false));
+        classEmitter.accept(readClass(classSource.apply("M")));
     }
 
     public static void init() {

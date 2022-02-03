@@ -10,10 +10,6 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class G implements GameProvider {
-
-	private String entrypoint;
-	private Path gameJar;
-	
 	private static final GameTransformer TRANSFORMER = new GameTransformer(
 			new P()
 	);
@@ -40,12 +36,12 @@ public class G implements GameProvider {
 
 	@Override
 	public Collection<BuiltinMod> getBuiltinMods() {
-		return Collections.singletonList(new BuiltinMod(Collections.singletonList(gameJar), new BuiltinModMetadata.Builder(getGameId(), getNormalizedGameVersion()).build()));
+		return Collections.singletonList(new BuiltinMod(Collections.singletonList(Paths.get("./MC4K.jar")), new BuiltinModMetadata.Builder(getGameId(), getNormalizedGameVersion()).build()));
 	}
 
 	@Override
 	public String getEntrypoint() {
-		return entrypoint;
+		return "Viewer";
 	}
 
 	@Override
@@ -70,14 +66,12 @@ public class G implements GameProvider {
 
 	@Override
 	public boolean locateGame(FabricLauncher launcher, String[] args) {
-		entrypoint = "Viewer";
-		gameJar = Paths.get("./MC4K.jar");
 		return true;
 	}
 
 	@Override
 	public void initialize(FabricLauncher launcher) {
-		TRANSFORMER.locateEntrypoints(launcher, gameJar);
+		TRANSFORMER.locateEntrypoints(launcher, Paths.get("./MC4K.jar"));
 	}
 
 	@Override
@@ -87,12 +81,12 @@ public class G implements GameProvider {
 
 	@Override
 	public void unlockClassPath(FabricLauncher launcher) {
-		launcher.addToClassPath(gameJar);
+		launcher.addToClassPath(Paths.get("./MC4K.jar"));
 	}
 
 	@Override
 	public void launch(ClassLoader loader) {
-		try {loader.loadClass(entrypoint).getMethod("main", String[].class).invoke(null, (Object) new String[0]);}
+		try {loader.loadClass("Viewer").getMethod("main", String[].class).invoke(null, (Object) new String[0]);}
 		catch(Exception ignored) {}
 	}
 
