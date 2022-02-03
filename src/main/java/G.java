@@ -21,7 +21,7 @@ public class G implements GameProvider {
 
 	@Override
 	public String getGameName() {
-		return "MC4K";
+		return "mc4k";
 	}
 
 	@Override
