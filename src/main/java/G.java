@@ -10,10 +10,6 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class G implements GameProvider {
-	private static final GameTransformer TRANSFORMER = new GameTransformer(
-			new P()
-	);
-
 	@Override
 	public String getGameId() {
 		return "mc4k";
@@ -71,12 +67,12 @@ public class G implements GameProvider {
 
 	@Override
 	public void initialize(FabricLauncher launcher) {
-		TRANSFORMER.locateEntrypoints(launcher, Paths.get("./MC4K.jar"));
+
 	}
 
 	@Override
 	public GameTransformer getEntrypointTransformer() {
-		return TRANSFORMER;
+		return new GameTransformer();
 	}
 
 	@Override
