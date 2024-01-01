@@ -43,25 +43,6 @@ dependencies {
 	api 'net.fabricmc:tiny-remapper:0.8.2'
 	api 'net.fabricmc:access-widener:2.1.0'
 
-	implementation 'org.ow2.sat4j:org.ow2.sat4j.core:2.3.6'
-	implementation 'org.ow2.sat4j:org.ow2.sat4j.pb:2.3.6'
-
-	implementation 'org.tinylog:tinylog-api:2.4.1'
-	implementation 'org.tinylog:tinylog-impl:2.4.1'
-	implementation 'org.jetbrains:annotations:23.0.0'
-
-	implementation 'com.mashape.unirest:unirest-java:1.4.9'
-
-	implementation 'org.json:json:20220320'
-	//implementation 'com.konghq:unirest-java:3.13.10'
-	implementation 'com.badlogicgames.gdx:gdx:1.11.0'
-	implementation 'com.badlogicgames.gdx:gdx-box2d:1.11.0'
-	implementation 'com.badlogicgames.gdx:gdx-controllers:1.9.13'
-	implementation 'com.badlogicgames.jamepad:jamepad:2.0.20.0'
-
-	// Unit testing for mod metadata
-	implementation('org.junit.jupiter:junit-jupiter:5.8.2')
-
 }
 
 java {
