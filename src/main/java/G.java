@@ -8,6 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 public class G implements GameProvider {
 	private static final GameTransformer TRANSFORMER = new GameTransformer(
@@ -70,7 +71,7 @@ public class G implements GameProvider {
 
 	@Override
 	public void initialize(FabricLauncher launcher) {
-		TRANSFORMER.locateEntrypoints(launcher, Paths.get("./MC4K.jar"));
+		TRANSFORMER.locateEntrypoints(launcher, Collections.singletonList(Path.of("./MC4K.jar")));
 	}
 
 	@Override
